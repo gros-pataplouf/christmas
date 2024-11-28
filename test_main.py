@@ -13,3 +13,10 @@ def test_light_can_be_switched_off() -> None:
     my_light : Light = Light()
     my_light.switch(False)
     assert(not my_light.is_on)
+
+def test_light_can_be_toggled() -> None:
+    my_light : Light = Light()
+    my_light.switch()
+    assert(my_light.is_on)
+    my_light.switch()
+    assert(not my_light.is_on)

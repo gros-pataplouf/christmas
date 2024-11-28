@@ -6,5 +6,5 @@ class Light():
     def is_on(self):
         return self.__is_on
     
-    def switch(self, on):
-        self.__is_on = on
+    def switch(self, on=None):
+        self.__is_on = on if on is not None else not self.__is_on
