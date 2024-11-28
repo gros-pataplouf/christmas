@@ -8,3 +8,8 @@ def test_light_can_be_switched_on() -> None:
     my_light : Light = Light()
     my_light.switch(True)
     assert(my_light.is_on)
+
+def test_light_can_be_switched_off() -> None:
+    my_light : Light = Light()
+    my_light.switch(False)
+    assert(not my_light.is_on)
