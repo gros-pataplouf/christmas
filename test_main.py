@@ -64,3 +64,15 @@ def test_lights_in_grid_toggled_by_coords() -> None:
         for j in range(x1, x2 + 1):
             assert(not my_grid.matrix[i][j].is_on)
     assert(my_grid.matrix[3][3].is_on)
+
+def test_lights_in_grid_switched_off_by_coords() -> None:
+    my_grid : Grid = Grid(1000, 1000)
+    x1 : int = 0
+    y1 : int = 0
+    x2 : int = 4
+    y2 : int = 4
+    my_grid.switch_on(((x1, y1), (x2, y2)))
+    assert(my_grid.on_count == 25)
+    my_grid.toggle(((0, 0), (999, 999)))
+    assert(my_grid.on_count == 999975)
+
