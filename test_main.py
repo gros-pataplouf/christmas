@@ -37,3 +37,15 @@ def test_lights_in_grid_switched_on_by_coords() -> None:
     for i in range(y1, y2 + 1):
         for j in range(x1, x2 + 1):
             assert(my_grid.matrix[i][j].is_on)
+
+def test_lights_in_grid_switched_off_by_coords() -> None:
+    my_grid : Grid = Grid(1000, 1000)
+    x1 : int = 0
+    y1 : int = 4
+    x2 : int = 5
+    y2 : int = 9
+    my_grid.switch_on(((x1, y1), (x2, y2)))
+    my_grid.switch_off(((x1, y1), (x2, y2)))
+    for i in range(y1, y2 + 1):
+        for j in range(x1, x2 + 1):
+            assert(not my_grid.matrix[i][j].is_on)

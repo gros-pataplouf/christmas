@@ -20,3 +20,12 @@ class Grid():
         for i in range(y1, y2 + 1):
             for j in range(x1, x2 + 1):
                 self.matrix[i][j].switch(True)
+
+    def switch_off(self, coords : tuple):
+        (p1, p2) = coords
+        (x1, y1) = p1
+        (x2, y2) = p2
+        for i in range(y1, y2 + 1):
+            for j in range(x1, x2 + 1):
+                self.matrix[i][j].switch(False)
+ 
