@@ -89,4 +89,25 @@ def test_illumination_executes_instructions(mocker) -> None:
     my_illumination.illuminate(instructions)
     Grid.switch_on.assert_called_once_with(instructions[0]["coords"])
 
+def test_illumination_executes_instructions_toggle(mocker) -> None:
+    mocker.patch('main.Grid.toggle')
+    #mocker.patch('main.Grid.switch_off')
+    my_grid = Grid(1000, 1000)
+    my_illumination = Illumination(my_grid)
+    instructions = [{
+        "coords":  ((887,9), (959,629)),
+        "on": False,
+        "toggle": True
+        },
+        {
+        "coords":  ((0, 0), (959,629)),
+        "on": False,
+        "toggle": False
+        }
+        ]
+    my_illumination.illuminate(instructions)
+    Grid.toggle.assert_called_once_with(instructions[0]["coords"])
+    #Grid.switch_off.toggle.assert_called_once_with(instructions[1]["coords"])
+
+
 

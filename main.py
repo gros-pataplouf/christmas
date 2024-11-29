@@ -55,4 +55,8 @@ class Illumination():
         self.grid = grid
     def illuminate(self, instructions):
         for i in instructions:
-            self.grid.switch_on(i["coords"])
+            if not i["toggle"]:
+                self.grid.switch_on(i["coords"]) if i["on"] else self.grid.switch_off(i["coords"])
+            else:
+                self.grid.toggle(i["coords"])
+
