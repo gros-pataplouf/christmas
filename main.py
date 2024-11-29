@@ -39,8 +39,7 @@ class Grid():
                     self.matrix[i][j].switch(on)
                 else:
                     self.matrix[i][j].switch()
-    
-   
+
     def switch_on(self, coords : tuple):
         self.switch(coords, on=True)
 
@@ -49,3 +48,11 @@ class Grid():
 
     def toggle(self, coords : tuple):
         self.switch(coords, toggle=True)
+
+    
+class Illumination():
+    def __init__(self, grid : Grid):
+        self.grid = grid
+    def illuminate(self, instructions):
+        for i in instructions:
+            self.grid.switch_on(i["coords"])
