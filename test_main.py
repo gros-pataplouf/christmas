@@ -107,7 +107,6 @@ def test_illumination_executes_instructions_toggle(mocker) -> None:
         ]
     my_illumination.display_shape(instructions)
     Grid.toggle.assert_called_once_with(instructions[0]["coords"])
-    #Grid.switch_off.toggle.assert_called_once_with(instructions[1]["coords"])
 
 
 
@@ -147,4 +146,15 @@ def test_illumination_executes_instructions_switch_off(mocker) -> None:
     my_illumination.display_shape(instructions)
     Grid.switch_off.assert_called_once_with(instructions[1]["coords"])
 
-
+def test_grid_can_reset() -> None:
+    my_grid = Grid(5, 5)
+    my_illumination = Illumination(my_grid)
+    instructions = [{
+        "coords":  ((0,1), (3,3)),
+        "on": False,
+        "toggle": True
+        }
+    ]
+    my_illumination.display_shape(instructions)
+    my_grid.reset()
+    assert(my_grid.on_count == 0)

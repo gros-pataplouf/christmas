@@ -12,9 +12,13 @@ class Light():
         self.__is_on = on if on is not None else not self.__is_on
 
 class Grid():
+    
     def __init__(self, width : int, height : int):
         self.matrix = [[Light() for elt in range(0, width)] for elt in range(0, height)]
+        self.width = width
+        self.height = height
         self.__on_count = 0
+
     def __str__(self):
         return "".join(list(map(lambda row: "".join(list(map(lambda elt : "*" if elt.is_on else " ", row))) + "\n", self.matrix)))
 
@@ -52,6 +56,9 @@ class Grid():
 
     def toggle(self, coords : tuple):
         self.switch(coords, toggle=True)
+    
+    def reset(self):
+        self.switch_off(((0, 0), (self.width -1, self.height - 1)))
 
     
 class Illumination():
