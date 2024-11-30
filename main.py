@@ -46,7 +46,13 @@ class Grid():
             else:
                 return "O"
 
-        return "".join(list(map(lambda row: "".join(list(map(lambda elt : map_brightness(elt.brightness), row))) + "\n", self.matrix)))
+        return "".join(
+            list(
+                map(
+                    lambda row: "".join(
+                        list(
+                            map(
+                                lambda elt : map_brightness(elt.brightness), row))) + "\n", self.matrix)))
 
     @property
     def on_count(self):
@@ -111,6 +117,6 @@ class Illumination():
 
 
 if __name__ == "__main__":
-    grid = Grid(51, 26)
+    grid = Grid(50, 25)
     illumination = Illumination(grid)
     illumination.lightshow()
