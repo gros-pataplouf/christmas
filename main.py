@@ -15,7 +15,9 @@ class Light():
 
 
     def switch(self, on=None):
-        self.__is_on = on if on is not None else not self.__is_on
+        if on is not None:
+            self.__brightness = self.__brightness + 1 if on else self.__brightness - 1
+        self.__is_on = True if self.__brightness > 0 else False
 
 class Grid():
     

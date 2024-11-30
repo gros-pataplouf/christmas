@@ -55,7 +55,9 @@ After following the instructions, how many lights are lit?
 
 
 Part Two
-You just finish implementing your winning light pattern when you realize you mistranslated Santa’s message from Ancient Nordic Elvish. The light grid you bought actually has individual brightness controls; each light can have a brightness of zero or more. The lights all start at zero.
+You just finish implementing your winning light pattern when you realize you mistranslated Santa’s message from Ancient Nordic Elvish. The light grid you bought actually has individual brightness controls; each light can have a brightness of zero or more.
+
+The lights all start at zero.
 
 The phrase turn on actually means that you should increase the brightness of those lights by 1.
 The phrase turn off actually means that you should decrease the brightness of those lights by 1, to a minimum of zero.
