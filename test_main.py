@@ -159,3 +159,10 @@ def test_turn_on_increases_brightness_by_1() -> None:
     my_light.switch(on=True)
     my_light.switch(on=True)
     assert(my_light.brightness == 2)
+
+def test_turn_off_increases_brightness_by_1() -> None:
+    my_light = Light()
+    my_light.switch(on=True)
+    my_light.switch(on=True)
+    my_light.switch(on=False)
+    assert(my_light.brightness == 1)
