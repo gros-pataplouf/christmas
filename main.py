@@ -59,23 +59,21 @@ class Illumination():
     def __init__(self, grid : Grid):
         self.grid = grid
     
-    def illuminate(self, instruction):
+    def display_shape(self, instruction):
         for i in instruction:
             if not i["toggle"]:
                 self.grid.switch_on(i["coords"]) if i["on"] else self.grid.switch_off(i["coords"])
             else:
                 self.grid.toggle(i["coords"])
-        print(self.grid)
     
     def lightshow(self, instructions : list = INSTRUCTIONS):
-        print(instructions)
         for i in instructions:
-            self.illuminate(i)
+            self.display_shape(i)
+            print(self.grid)
 
 
 
 if __name__ == "__main__":
-    grid = Grid(51, 24)
+    grid = Grid(51, 26)
     illumination = Illumination(grid)
     illumination.lightshow()
-    print(grid)
