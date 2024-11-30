@@ -1,7 +1,5 @@
 # Probably a Fire Hazard ðŸŽ„
 
-
-
 ## Kata Description
 
 Inspired by Advent of Code and [kata-log.rocks/christmas-lights-kata](https://kata-log.rocks/christmas-lights-kata)
@@ -16,7 +14,7 @@ Every year, your neighbours outshine you in the Christmas lights competition ðŸ˜
 
 ## Mission
 
-Write a program to decipher Santa's instructions and display a series of festive shapes on your grid by turning on/off and toggling the light bulbs.
+Write a program to decipher Santa's instructions (see `instructions.json`) and display a series of festive shapes on your grid by turning on/off and toggling the light bulbs.
 
 ### Requirements I
 
