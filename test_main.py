@@ -90,7 +90,6 @@ def test_illumination_executes_instructions(mocker) -> None:
 
 def test_illumination_executes_instructions_toggle(mocker) -> None:
     mocker.patch('main.Grid.toggle')
-    #mocker.patch('main.Grid.switch_off')
     my_grid = Grid(1000, 1000)
     my_illumination = Illumination(my_grid)
     instructions = [{
