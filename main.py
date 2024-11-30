@@ -68,16 +68,20 @@ class Illumination():
     
     def display_shape(self, instruction):
         for i in instruction:
-            if not i["toggle"]:
-                self.grid.switch_on(i["coords"]) if i["on"] else self.grid.switch_off(i["coords"])
-            else:
-                self.grid.toggle(i["coords"])
+            match i["type"]:
+                case "toggle":
+                    self.grid.toggle(i["coords"])
+                case "on":
+                    self.grid.switch_on(i["coords"])
+                case "off":
+                    self.grid.switch_off(i["coords"])
+
     
     def lightshow(self, instructions : list = INSTRUCTIONS):
         for i in instructions:
             self.display_shape(i)
             print(self.grid)
-
+            self.grid.reset()
 
 
 if __name__ == "__main__":

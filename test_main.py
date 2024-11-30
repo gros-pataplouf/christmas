@@ -82,8 +82,7 @@ def test_illumination_executes_instructions(mocker) -> None:
     my_illumination = Illumination(my_grid)
     instructions = [{
         "coords":  ((887,9), (959,629)),
-        "on": True,
-        "toggle": False
+        "type": "on"
         }
         ]
     my_illumination.display_shape(instructions)
@@ -96,13 +95,7 @@ def test_illumination_executes_instructions_toggle(mocker) -> None:
     my_illumination = Illumination(my_grid)
     instructions = [{
         "coords":  ((887,9), (959,629)),
-        "on": False,
-        "toggle": True
-        },
-        {
-        "coords":  ((0, 0), (959,629)),
-        "on": False,
-        "toggle": False
+        "type": "toggle"
         }
         ]
     my_illumination.display_shape(instructions)
@@ -116,13 +109,12 @@ def test_illumination_executes_instructions_switch_off(mocker) -> None:
     my_illumination = Illumination(my_grid)
     instructions = [{
         "coords":  ((887,9), (959,629)),
-        "on": False,
+        "type": "toggle",
         "toggle": True
         },
         {
         "coords":  ((0, 0), (959,629)),
-        "on": False,
-        "toggle": False
+        "type": "off"
         }
         ]
     my_illumination.display_shape(instructions)
@@ -134,14 +126,11 @@ def test_illumination_executes_instructions_switch_off(mocker) -> None:
     my_illumination = Illumination(my_grid)
     instructions = [{
         "coords":  ((887,9), (959,629)),
-        "on": False,
-        "toggle": True
+        "type": "toggle"
         },
         {
         "coords":  ((0, 0), (959,629)),
-        "on": False,
-        "toggle": False
-        }
+        "type": "off"        }
         ]
     my_illumination.display_shape(instructions)
     Grid.switch_off.assert_called_once_with(instructions[1]["coords"])
@@ -151,8 +140,7 @@ def test_grid_can_reset() -> None:
     my_illumination = Illumination(my_grid)
     instructions = [{
         "coords":  ((0,1), (3,3)),
-        "on": False,
-        "toggle": True
+        "type": "toggle"
         }
     ]
     my_illumination.display_shape(instructions)
