@@ -15,8 +15,8 @@ class Grid():
     
     def __init__(self, width : int, height : int):
         self.matrix = [[Light() for elt in range(0, width)] for elt in range(0, height)]
-        self.width = width
-        self.height = height
+        self.__width = width
+        self.__height = height
         self.__on_count = 0
 
     def __str__(self):
@@ -58,7 +58,7 @@ class Grid():
         self.switch(coords, toggle=True)
     
     def reset(self):
-        self.switch_off(((0, 0), (self.width -1, self.height - 1)))
+        self.switch_off(((0, 0), (self.__width -1, self.__height - 1)))
 
     
 class Illumination():
