@@ -16,14 +16,6 @@ def test_light_can_be_switched_off() -> None:
     my_light.switch(False)
     assert(not my_light.is_on)
 
-@pytest.mark.skip
-def test_light_can_be_toggled() -> None:
-    my_light : Light = Light()
-    my_light.switch()
-    assert(my_light.is_on)
-    my_light.switch()
-    assert(not my_light.is_on)
-
 def test_1000x1000_grid_consists_of_lights() -> None:
     my_grid : Grid = Grid(1000, 1000)
     assert(len(my_grid.matrix) == 1000)
@@ -173,3 +165,10 @@ def test_brightness_minimum_0() -> None:
     my_light.switch(on=False)
     my_light.switch(on=False)
     assert(my_light.brightness == 0)
+
+def test_toggle_increases_by_2() -> None:
+    my_light : Light = Light()
+    my_light.switch(True)
+    assert(my_light.is_on)
+    my_light.switch()
+    assert(my_light.brightness == 3)

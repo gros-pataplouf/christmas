@@ -19,12 +19,9 @@ class Light():
         if self.__brightness < 0:
             self.__brightness = 0
 
-
-
-
     def switch(self, on=None):
         if on is None:
-            pass
+            self.brightness = 2
         elif on == False:
             self.brightness = -1
         else:
