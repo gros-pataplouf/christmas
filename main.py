@@ -37,7 +37,16 @@ class Grid():
         self.__on_count = 0
 
     def __str__(self):
-        return "".join(list(map(lambda row: "".join(list(map(lambda elt : "*" if elt.is_on else " ", row))) + "\n", self.matrix)))
+
+        def map_brightness(value):
+            if value == 0:
+                return " "
+            elif value == 1:
+                return "*"
+            else:
+                return "O"
+
+        return "".join(list(map(lambda row: "".join(list(map(lambda elt : map_brightness(elt.brightness), row))) + "\n", self.matrix)))
 
     @property
     def on_count(self):
