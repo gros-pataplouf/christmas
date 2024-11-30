@@ -12,12 +12,24 @@ class Light():
     @property
     def brightness(self):
         return self.__brightness
+    
+    @brightness.setter
+    def brightness(self, added_brightness):
+        self.__brightness = self.__brightness + added_brightness
+        if self.__brightness < 0:
+            self.__brightness = 0
+
+
 
 
     def switch(self, on=None):
-        if on is not None:
-            self.__brightness = self.__brightness + 1 if on else self.__brightness - 1
-        self.__is_on = True if self.__brightness > 0 else False
+        if on is None:
+            pass
+        elif on == False:
+            self.brightness = -1
+        else:
+            self.brightness = 1
+        self.__is_on = True if self.brightness > 0 else False
 
 class Grid():
     
