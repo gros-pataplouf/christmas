@@ -3,11 +3,17 @@ from instructions import INSTRUCTIONS
 class Light():
     def __init__(self):
         self.__is_on = False
+        self.__brightness = 0
     
     @property
     def is_on(self):
         return self.__is_on
     
+    @property
+    def brightness(self):
+        return self.__brightness
+
+
     def switch(self, on=None):
         self.__is_on = on if on is not None else not self.__is_on
 

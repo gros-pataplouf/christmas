@@ -145,3 +145,7 @@ def test_grid_can_reset() -> None:
     my_illumination.display_shape(instructions)
     my_grid.reset()
     assert(my_grid.on_count == 0)
+
+def test_light_starts_with_0_brightness() -> None:
+    my_light = Light()
+    assert(my_light.brightness == 0) 
